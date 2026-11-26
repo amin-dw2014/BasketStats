@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <!-- =========================================
+        1. CONFIGURATION ET RESSOURCES
+    ========================================= -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Feuille de style principale -->
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- Bibliothèque d'icônes Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+        <!-- Titre de la page -->
+        <title>Fiche joueur | BasketStats</title>
+    </head>
+
+    <body>
+
+        <!-- =========================================
+            2. CONTENU PRINCIPAL DE LA FICHE JOUEUR
+        ========================================= -->
+        <main class="player-profile-page">
+
+
+            <!-- =====================================
+                2.1. EN-TÊTE DU PROFIL
+            ===================================== -->
+            <section class="player-profile-header">
+
+                <!-- Informations du joueur -->
+                <div class="player-profile-info">
+
+                    <!-- Photo du joueur -->
+                    <div class="profile-photo">
+                        <img id="profileImage" src="" alt="Photo du joueur">
+                    </div>
+
+                    <!-- Nom et description du profil -->
+                    <div class="profile-name">
+                        <h1 id="profileName">Chargement...</h1>
+                        <p>Fiche du joueur</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Bouton retour à l'accueil -->
+                <div class="profile-actions">
+
+                    <!-- BOUTON RETOUR -->
+                    <a href="index.html" class="back-home" aria-label="Retour à l'accueil">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                2.2. SECTION DES MATCHS DU JOUEUR
+            ===================================== -->
+            <section class="player-matches">
+
+                <!-- Titre de la section -->
+                <div class="matches-title">
+                    <h2>Mes matchs</h2>
+                </div>
+
+
+                <!-- =================================
+                    2.3. STATISTIQUES GÉNÉRALES DU JOUEUR
+                ================================= -->
+                <section class="player-stats" id="playerStats">
+
+
+                    <!-- En-tête du bilan -->
+                    <div class="stats-heading">
+                        <div>
+                            <h2>Bilan général</h2>
+                            <p>Les performances de ce joueur</p>
+                        </div>
+
+                        <!-- Icône des statistiques -->
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+
+                    <!-- =================================
+                        2.4. GRILLE DES STATISTIQUES
+                    ================================= -->
+                    <div class="stats-grid">
+
+
+                        <!-- MATCHS JOUÉS -->
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+
+                            <!-- Nombre de matchs -->
+                            <strong id="totalMatches">0</strong>
+                            <span>Matchs joués</span>
+                        </div>
+
+
+                        <!-- TOTAL DES POINTS -->
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-basketball"></i>
+                            </div>
+
+                            <!-- Points cumulés -->
+                            <strong id="totalPoints">0</strong>
+                            <span>Points marqués</span>
+                        </div>
+
+
+                        <!-- MOYENNE DE POINTS PAR MATCH -->
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-chart-column"></i>
+                            </div>
+
+                            <!-- Moyenne de points -->
+                            <strong id="averagePoints">0</strong>
+                            <span>Points par match</span>
+                        </div>
+
+
+                        <!-- MOYENNE DE POINTS PAR MINUTE -->
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+
+                            <!-- Moyenne de points par minute -->
+                            <strong id="averagePerMinute">0</strong>
+                            <span>Points par minute</span>
+                        </div>
+
+                        <!-- =========================================
+                            MOYENNE DE 3 POINTS PAR MATCH
+                        ========================================= -->
+
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-basketball"></i>
+                            </div>
+
+                            <strong id="totalThreePoints">0</strong>
+
+                            <span>Total 3PTS</span>
+                        </div>
+
+
+                        <!-- =========================================
+                            MOYENNE DE LANCERS FRANCS PAR MATCH
+                        ========================================= -->
+
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+
+                            <strong id="averageFreeThrows">0</strong>
+
+                            <span>LF / match</span>
+                        </div>
+
+
+                        <!-- =========================================
+                            MOYENNE DE FAUTES PAR MATCH
+                        ========================================= -->
+
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-whistle"></i>
+                            </div>
+
+                            <strong id="averageFouls">0</strong>
+
+                            <span>F / match</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                        2.5. MOYENNE DE TEMPS DE JEU
+                    ================================= -->
+                    <!-- TEMPS DE JEU TOTAL -->
+                    <div class="total-minutes-card">
+                        <div>
+                            <span>Moyenne de temps de jeu</span>
+
+                            <!-- Moyenne des minutes jouées -->
+                            <strong id="totalMinutes">0 min</strong>
+                        </div>
+
+                        <!-- Icône du temps -->
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+
+                </section>
+
+
+                <!-- =================================
+                    2.6. MESSAGE AUCUN MATCH
+                ================================= -->
+                <div class="no-match" id="noMatch">
+
+                    <!-- Illustration -->
+                    <img src="images/no-players.png" alt="Aucun match">
+
+                    <!-- Titre du message -->
+                    <h2>Aucun match enregistré</h2>
+
+                    <!-- Explication -->
+                    <p>
+                        Les matchs de ce joueur apparaîtront ici
+                        lorsqu'ils seront enregistrés depuis la rubrique Match.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================
+                    2.7. LISTE DES MATCHS
+                ================================= -->
+                <!-- Les matchs du joueur seront affichés par JavaScript -->
+                <div class="matches-list" id="matchesList"></div>
+
+
+            </section>
+
+
+            <!-- =====================================
+                2.8. MESSAGE SI LE JOUEUR N'EXISTE PAS
+            ===================================== -->
+            <div class="player-not-found" id="playerNotFound" hidden>
+
+                <!-- Titre -->
+                <h2>Joueur introuvable</h2>
+
+                <!-- Message -->
+                <p>Ce joueur n'existe pas ou a été supprimé.</p>
+
+                <!-- Retour à l'accueil -->
+                <a href="index.html">Retour à l'accueil</a>
+
+            </div>
+
+
+        </main>
+
+                <!-- =========================================
+            3. FORMULAIRE D'AJOUT D'UN MATCH
+        ========================================= -->
+        <div class="modal-overlay" id="matchModal" hidden>
+
+            <!-- Contenu de la fenêtre modale -->
+            <div class="player-modal match-modal">
+
+
+                <!-- =================================
+                    3.1. EN-TÊTE DU FORMULAIRE
+                ================================= -->
+                <!-- EN-TÊTE DU FORMULAIRE -->
+                <div class="modal-header">
+
+                    <!-- Titre du formulaire -->
+                    <h2>
+                        <i class="fa-solid fa-basketball"></i>
+                        Ajouter les statistiques d'un match
+                    </h2>
+
+                    <!-- Bouton de fermeture -->
+                    <button type="button" id="closeMatchModal" aria-label="Fermer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                </div>
+
+
+                <!-- =================================
+                    3.2. CONTENU DU FORMULAIRE
+                ================================= -->
+                <!-- CONTENU DU FORMULAIRE -->
+                <form id="matchForm">
+
+                    <!-- Grille des champs du match -->
+                    <div class="match-form-grid">
+
+
+                        <!-- NOM DU MATCH -->
+                        <div class="form-group">
+                            <label for="matchName">
+                                Nom du match <span>*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="matchName"
+                                placeholder="Ex : Match 1"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- POINTS MARQUÉS -->
+                        <div class="form-group">
+                            <label for="matchPoints">
+                                Points marqués <span>*</span>
+                            </label>
+                            <input
+                                type="number"
+                                id="matchPoints"
+                                placeholder="Ex : 28"
+                                min="0"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- ÉQUIPE DU JOUEUR -->
+                        <div class="form-group">
+                            <label for="matchTeam">
+                                Mon équipe <span>*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="matchTeam"
+                                placeholder="Ex : Mon équipe"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- ÉQUIPE ADVERSE -->
+                        <div class="form-group">
+                            <label for="matchOpponent">
+                                Équipe adverse <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="matchOpponent"
+                                placeholder="Ex : AS Lyon"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- MINUTES JOUÉES -->
+                        <div class="form-group">
+                            <label for="matchMinutes">
+                                Minutes jouées <span>*</span>
+                            </label>
+                            <input
+                                type="number"
+                                id="matchMinutes"
+                                placeholder="Ex : 34"
+                                min="0"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- DATE DU MATCH -->
+                        <div class="form-group">
+                            <label for="matchDate">
+                                Date du match <span>*</span>
+                            </label>
+                            <input
+                                type="date"
+                                id="matchDate"
+                                required
+                            >
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================
+                        3.3. BOUTONS DU FORMULAIRE
+                    ================================= -->
+                    <!-- BOUTONS -->
+                    <div class="form-buttons">
+
+                        <!-- Bouton annuler -->
+                        <button type="button" id="cancelMatch">
+                            Annuler
+                        </button>
+
+                        <!-- Bouton de validation -->
+                        <button type="submit">
+                            <i class="fa-solid fa-check"></i>
+                            Valider
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+            4. FENÊTRE DE CONFIRMATION DE SUPPRESSION
+        ========================================= -->
+        <!-- FENÊTRE DE CONFIRMATION DE SUPPRESSION -->
+        <div class="modal-overlay delete-overlay" id="deleteMatchModal" hidden>
+
+            <!-- Contenu de la fenêtre -->
+            <div class="delete-modal">
+
+
+                <!-- =================================
+                    4.1. ICÔNE DE SUPPRESSION
+                ================================= -->
+                <div class="delete-icon">
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+
+
+                <!-- =================================
+                    4.2. TITRE ET MESSAGE
+                ================================= -->
+                <!-- Titre de la confirmation -->
+                <h2>Supprimer ce match ?</h2>
+
+                <!-- Message de confirmation -->
+                <p>
+                    Es-tu sûr de vouloir supprimer ce match ?
+                    Cette action est définitive.
+                </p>
+
+
+                <!-- =================================
+                    4.3. BOUTONS DE CONFIRMATION
+                ================================= -->
+                <div class="delete-buttons">
+
+                    <!-- Bouton annuler -->
+                    <button type="button" id="cancelDeleteMatch">
+                        Annuler
+                    </button>
+
+                    <!-- Bouton supprimer -->
+                    <button type="button" id="confirmDeleteMatch">
+                        <i class="fa-solid fa-trash-can"></i>
+                        Supprimer
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+            5. CONNEXION DU JAVASCRIPT
+        ========================================= -->
+        <script src="player.js"></script>
+
+    </body>
+</html>
